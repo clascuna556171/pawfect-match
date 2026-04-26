@@ -1,0 +1,1158 @@
+/* ==============================================
+   PAWFECTMATCH - THEME SYSTEM
+   Dark mode overrides + Admin light mode overrides
+   ============================================== */
+
+/* ============================================
+   CSS VARIABLE OVERRIDES (DARK)
+   All component CSS files use var(--card-bg, white)
+   and var(--page-bg, var(--cream)), so defining
+   these variables activates the entire dark theme.
+   ============================================ */
+[data-theme="dark"] {
+  --card-bg: #1E293B;
+  --page-bg: #0F172A;
+  --cream: #0F172A;
+  --gray: #94a3b8;
+  --gray-light: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] body {
+  background-color: #0F172A;
+  color: #e2e8f0;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(15, 23, 42, 0.98) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .navbar-logo span {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .navbar-menu a {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .navbar-menu a::after {
+  background: var(--coral) !important;
+}
+
+[data-theme="dark"] .mobile-menu-toggle {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .navbar-auth > span {
+  color: #cbd5e1 !important;
+}
+
+@media (max-width: 768px) {
+  [data-theme="dark"] .navbar-menu {
+    background: #0F172A !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ============================================
+   HEADINGS & TEXT
+   ============================================ */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #FAF8F6 !important;
+}
+
+/* Preserve hero title styling — already light on dark */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-title span,
+[data-theme="dark"] .hero-title em {
+  color: unset !important;
+}
+
+[data-theme="dark"] .hero-title .title-line3 {
+  background: linear-gradient(135deg, #FF9A9A 0%, var(--coral) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-theme="dark"] .cta-section h2 {
+  color: var(--cream) !important;
+}
+
+[data-theme="dark"] p {
+  color: #94a3b8;
+}
+
+/* Text that uses color: var(--navy) but sits on dark backgrounds */
+[data-theme="dark"] .filter-header,
+[data-theme="dark"] .filter-label,
+[data-theme="dark"] .filter-checkbox:hover,
+[data-theme="dark"] .pet-title,
+[data-theme="dark"] .modal-header h2,
+[data-theme="dark"] .form-label,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .pet-name-title,
+[data-theme="dark"] .stat-number,
+[data-theme="dark"] .testimonial-name,
+[data-theme="dark"] .process-card h3,
+[data-theme="dark"] .pets-header h1,
+[data-theme="dark"] .featured-header-text h2,
+[data-theme="dark"] .process-header h2,
+[data-theme="dark"] .testimonials-header-text h2,
+[data-theme="dark"] .accordion-trigger {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .card-breed,
+[data-theme="dark"] .card-desc,
+[data-theme="dark"] .card-age,
+[data-theme="dark"] .pet-breed-subtitle,
+[data-theme="dark"] .pet-desc-text,
+[data-theme="dark"] .pet-age-text,
+[data-theme="dark"] .pet-card-breed,
+[data-theme="dark"] .pet-card-description,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .process-card p,
+[data-theme="dark"] .process-header p,
+[data-theme="dark"] .featured-header-text p,
+[data-theme="dark"] .testimonials-header-text p,
+[data-theme="dark"] .testimonial-text,
+[data-theme="dark"] .pet-subtitle,
+[data-theme="dark"] .accordion-content,
+[data-theme="dark"] .no-results p,
+[data-theme="dark"] .pets-count,
+[data-theme="dark"] .pet-description {
+  color: #94a3b8 !important;
+}
+
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+[data-theme="dark"] .stats-section {
+  background: #1E293B !important;
+}
+
+[data-theme="dark"] .process-section {
+  background: #0F172A !important;
+}
+
+[data-theme="dark"] .featured-section {
+  background: #111827 !important;
+}
+
+[data-theme="dark"] .testimonials-section {
+  background: #0F172A !important;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+[data-theme="dark"] .process-card,
+[data-theme="dark"] .browse-card,
+[data-theme="dark"] .pet-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .card-content,
+[data-theme="dark"] .pet-card-content-new,
+[data-theme="dark"] .filter-sidebar,
+[data-theme="dark"] .application-modal,
+[data-theme="dark"] .no-results {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-theme="dark"] .process-card:hover,
+[data-theme="dark"] .browse-card:hover,
+[data-theme="dark"] .pet-card:hover,
+[data-theme="dark"] .testimonial-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .pet-species-badge,
+[data-theme="dark"] .status-badge.status-available {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .card-footer,
+[data-theme="dark"] .pet-card-footer,
+[data-theme="dark"] .pet-card-hr,
+[data-theme="dark"] .testimonial-author,
+[data-theme="dark"] .accordion-item {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .card-fav-btn,
+[data-theme="dark"] .pet-card-favorite-btn {
+  background: #334155 !important;
+}
+
+[data-theme="dark"] .card-image-wrapper {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%) !important;
+  background-size: 200% 100% !important;
+}
+
+/* ============================================
+   INPUTS & FORMS
+   ============================================ */
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .search-input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="tel"],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: #0F172A !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  background: #1E293B !important;
+  border-color: var(--coral) !important;
+}
+
+[data-theme="dark"] input[type="checkbox"] {
+  background: #0F172A !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+[data-theme="dark"] .btn-outline {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  border-color: var(--coral) !important;
+  color: var(--coral) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   FOOTER & MISC
+   ============================================ */
+[data-theme="dark"] .footer {
+  background: #020617 !important;
+}
+
+[data-theme="dark"] .sticky-action-bar {
+  background: rgba(15, 23, 42, 0.95) !important;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   AUTH PAGES
+   ============================================ */
+[data-theme="dark"] .auth-container,
+[data-theme="dark"] .auth-page {
+  background-color: #0F172A !important;
+}
+
+[data-theme="dark"] .auth-card {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #1A2332;
+  font-size: 1.2rem;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  color: #FAF8F6;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==============================================
+   ADMIN PANEL — LIGHT MODE OVERRIDES
+   The admin is dark by default (hardcoded in
+   modules.css). These rules override it to light
+   when theme is "light".
+   ============================================== */
+[data-theme="light"] .admin-wrapper {
+  background: #FAF8F6 !important;
+}
+
+[data-theme="light"] .orb {
+  opacity: 0.04 !important;
+}
+
+[data-theme="light"] .glass-panel {
+  background: white !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(26, 35, 50, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(26, 35, 50, 0.06) !important;
+}
+
+[data-theme="light"] .glass-panel:hover {
+  box-shadow: 0 8px 24px rgba(26, 35, 50, 0.1) !important;
+}
+
+[data-theme="light"] .admin-title {
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .admin-subtitle {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .stat-card h4 {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .stat-value {
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .stat-value.text-mint { color: #059669 !important; }
+[data-theme="light"] .stat-value.text-amber { color: #d97706 !important; }
+[data-theme="light"] .stat-value.text-coral { color: #dc2626 !important; }
+
+[data-theme="light"] .chart-container h3,
+[data-theme="light"] .table-header h3 {
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .view-all-link {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .view-all-link:hover {
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .admin-table th {
+  color: #64748b !important;
+  border-bottom-color: rgba(26, 35, 50, 0.1) !important;
+}
+
+[data-theme="light"] .admin-table td {
+  background: rgba(250, 248, 246, 0.6) !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .admin-table tr:hover td {
+  background: rgba(226, 232, 240, 0.5) !important;
+}
+
+[data-theme="light"] .inline-edit:hover {
+  background: rgba(226, 232, 240, 0.4) !important;
+}
+
+[data-theme="light"] .edit-input {
+  background: white !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .edit-input:focus {
+  border-color: #3b82f6 !important;
+}
+
+[data-theme="light"] .inline-select {
+  background: white !important;
+  color: #334155 !important;
+  border: 1px solid rgba(26, 35, 50, 0.15) !important;
+  border-radius: 8px;
+  padding: 0.3rem 0.5rem;
+}
+
+[data-theme="light"] .status-select {
+  background: rgba(226, 232, 240, 0.6) !important;
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .status-select.available {
+  background: rgba(52, 211, 153, 0.12) !important;
+  border-color: #34d399 !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .status-select.pending {
+  background: rgba(251, 191, 36, 0.12) !important;
+  border-color: #fbbf24 !important;
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .status-select.adopted {
+  background: rgba(248, 113, 113, 0.12) !important;
+  border-color: #f87171 !important;
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .status-select option {
+  background: white !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .table-actions .action-icon {
+  background: rgba(226, 232, 240, 0.6) !important;
+  color: #64748b !important;
+}
+
+[data-theme="light"] .table-actions .action-icon:hover {
+  background: rgba(59, 130, 246, 0.12) !important;
+  color: #3b82f6 !important;
+}
+
+[data-theme="light"] .btn-action {
+  background: #3b82f6 !important;
+  color: white !important;
+  border-color: #3b82f6 !important;
+}
+
+[data-theme="light"] .status-toggle-wrapper::after {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .admin-wrapper input,
+[data-theme="light"] .admin-wrapper textarea,
+[data-theme="light"] .admin-wrapper select {
+  background: white !important;
+  color: #1A2332 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .admin-wrapper input:focus,
+[data-theme="light"] .admin-wrapper textarea:focus,
+[data-theme="light"] .admin-wrapper select:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+[data-theme="light"] .admin-wrapper label,
+[data-theme="light"] .admin-wrapper .form-label {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .admin-wrapper p {
+  color: #64748b !important;
+}
+
+/* ==============================================
+   ADMIN LOGIN PAGE — LIGHT MODE
+   ============================================== */
+[data-theme="light"] #admin-login-page {
+  background: #FAF8F6 !important;
+}
+
+[data-theme="light"] #admin-login-page .bg-orb {
+  opacity: 0.04 !important;
+}
+
+[data-theme="light"] #admin-login-page .admin-login-card {
+  background: white !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(26, 35, 50, 0.08) !important;
+  box-shadow: 0 8px 40px rgba(26, 35, 50, 0.08) !important;
+}
+
+[data-theme="light"] #admin-login-page h1 {
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] #admin-login-page .subtitle {
+  color: #64748b !important;
+}
+
+[data-theme="light"] #admin-login-page .input-group label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] #admin-login-page .input-group input {
+  background: #FAF8F6 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] #admin-login-page .input-group input::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] #admin-login-page .input-group input:focus {
+  border-color: #3b82f6 !important;
+  background: white !important;
+}
+
+[data-theme="light"] #admin-login-page .back-link {
+  color: #64748b !important;
+}
+
+[data-theme="light"] #admin-login-page .back-link:hover {
+  color: #1A2332 !important;
+}
+
+/* ==============================================
+   ADMIN SUB-PAGES — LIGHT MODE OVERRIDES
+   Applications, Donations, Testimonials pages
+   use inline <style> with hardcoded dark colors.
+   ============================================== */
+
+/* ---- Queue / Ledger Tables ---- */
+[data-theme="light"] .queue-table th,
+[data-theme="light"] .ledger-table th {
+  color: #64748b !important;
+  border-bottom-color: rgba(26, 35, 50, 0.12) !important;
+}
+
+[data-theme="light"] .queue-table td,
+[data-theme="light"] .ledger-table td {
+  color: #334155 !important;
+  border-bottom-color: rgba(26, 35, 50, 0.08) !important;
+}
+
+/* ---- Filter Pills ---- */
+[data-theme="light"] .queue-pill,
+[data-theme="light"] .ledger-pill {
+  color: #334155 !important;
+  background: rgba(226, 232, 240, 0.5) !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .queue-pill.active {
+  background: rgba(59, 130, 246, 0.1) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .ledger-pill.active {
+  background: rgba(34, 197, 94, 0.1) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: #059669 !important;
+}
+
+/* ---- Status Badges (light-mode contrast) ---- */
+[data-theme="light"] .status-badge.Submitted {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .status-badge.Under.Review {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .status-badge.Approved {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .status-badge.Rejected,
+[data-theme="light"] .status-badge.Withdrawn {
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .status-badge.Confirmed {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .status-badge.Pending {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .status-badge.Refunded,
+[data-theme="light"] .status-badge.Cancelled {
+  color: #dc2626 !important;
+}
+
+/* ---- Review Link ---- */
+[data-theme="light"] .row-link {
+  color: #2563eb !important;
+}
+
+/* ---- Action Buttons (Testimonials) ---- */
+[data-theme="light"] .action-btn {
+  background: rgba(226, 232, 240, 0.6) !important;
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .action-btn:hover {
+  background: rgba(226, 232, 240, 0.9) !important;
+}
+
+[data-theme="light"] .action-btn.approve {
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .action-btn.reject {
+  border-color: rgba(248, 113, 113, 0.4) !important;
+  color: #dc2626 !important;
+}
+
+/* ---- Donation Status Form ---- */
+[data-theme="light"] .status-form .status-select {
+  background: white !important;
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .status-save {
+  background: rgba(226, 232, 240, 0.6) !important;
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .status-save:hover {
+  background: rgba(226, 232, 240, 0.9) !important;
+}
+
+/* ---- Total Raised Badge ---- */
+[data-theme="light"] .total-raised {
+  color: #059669 !important;
+  background: rgba(34, 197, 94, 0.08) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* ---- Application Detail: Field Cards ---- */
+[data-theme="light"] .field {
+  background: rgba(250, 248, 246, 0.6) !important;
+  border-color: rgba(26, 35, 50, 0.1) !important;
+}
+
+[data-theme="light"] .field h4 {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .field p {
+  color: #1A2332 !important;
+}
+
+/* ---- Application Detail: Status Chip ---- */
+[data-theme="light"] .status-chip {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: #2563eb !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* ---- Application Detail: Review Form ---- */
+[data-theme="light"] .review-form label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .review-form select,
+[data-theme="light"] .review-form textarea {
+  background: white !important;
+  color: #1A2332 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .review-form select:focus,
+[data-theme="light"] .review-form textarea:focus {
+  border-color: #3b82f6 !important;
+}
+
+/* ---- Back button / secondary link ---- */
+[data-theme="light"] .btn-secondary-link {
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .btn-secondary-link:hover {
+  background: rgba(226, 232, 240, 0.5) !important;
+}
+
+/* ---- Success/Error alerts (inline styles use dark colors) ---- */
+[data-theme="light"] .admin-wrapper [style*="color: #bbf7d0"],
+[data-theme="light"] .admin-wrapper [style*="color:#bbf7d0"] {
+  color: #059669 !important;
+  background: rgba(34, 197, 94, 0.08) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* ---- Review Decision heading ---- */
+[data-theme="light"] .glass-panel h3 {
+  color: #1A2332 !important;
+}
+
+/* ---- Create/Edit Pet Form ---- */
+[data-theme="light"] .admin-form-group label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .admin-form-group input,
+[data-theme="light"] .admin-form-group select,
+[data-theme="light"] .admin-form-group textarea {
+  background: white !important;
+  color: #1A2332 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .admin-form-group input:focus,
+[data-theme="light"] .admin-form-group select:focus,
+[data-theme="light"] .admin-form-group textarea:focus {
+  border-color: #3b82f6 !important;
+  background: white !important;
+}
+
+[data-theme="light"] .admin-form-group select option {
+  background: white !important;
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .btn-cancel {
+  background: rgba(226, 232, 240, 0.6) !important;
+  color: #334155 !important;
+  border-color: rgba(26, 35, 50, 0.15) !important;
+}
+
+[data-theme="light"] .btn-cancel:hover {
+  background: rgba(226, 232, 240, 0.9) !important;
+  color: #1A2332 !important;
+}
+
+[data-theme="light"] .energy-range-display input[type="range"] {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="light"] .admin-form-error {
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .pet-card-price {
+  color: #1A2332 !important;
+}
+
+/* ============================================
+   USER DASHBOARD & DONATION PAGES
+   ============================================ */
+/* Cards & Containers */
+[data-theme="dark"] .donation-card,
+[data-theme="dark"] .application-card,
+[data-theme="dark"] .donation-shell,
+[data-theme="dark"] .empty,
+[data-theme="dark"] .payment-fields,
+[data-theme="dark"] .qr-panel {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .donation-header {
+  background: linear-gradient(120deg, #1E293B, #0F172A) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .donation-title,
+[data-theme="dark"] .application-card h2,
+[data-theme="dark"] .donation-header h1 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .meta,
+[data-theme="dark"] .donation-header p,
+[data-theme="dark"] .gateway-note,
+[data-theme="dark"] .qr-label,
+[data-theme="dark"] .empty {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .amount {
+  color: #2dd4bf !important; /* Lighter teal for dark mode */
+}
+
+/* Status Badges */
+[data-theme="dark"] .total-pill {
+  background: rgba(34, 211, 238, 0.1) !important;
+  border-color: rgba(34, 211, 238, 0.3) !important;
+  color: #67e8f9 !important;
+}
+
+[data-theme="dark"] .status {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .status.Submitted {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #93c5fd !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+[data-theme="dark"] .status.Under.Review {
+  background: rgba(251, 191, 36, 0.15) !important;
+  color: #fde68a !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+[data-theme="dark"] .status.Approved,
+[data-theme="dark"] .donations-wrap .status {
+  background: rgba(34, 197, 94, 0.15) !important;
+  color: #86efac !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+[data-theme="dark"] .status.Rejected,
+[data-theme="dark"] .status.Withdrawn {
+  background: rgba(248, 113, 113, 0.15) !important;
+  color: #fca5a5 !important;
+  border-color: rgba(248, 113, 113, 0.3) !important;
+}
+
+/* Form Checkbox Row */
+[data-theme="dark"] .check-row,
+[data-theme="dark"] .field label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .qr-panel img {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: #FAF8F6 !important;
+}
+
+/* ==============================================
+   FIX 1: AUTH PAGES (Login & Register) — DARK MODE
+   The glassmorphism card uses hardcoded light colors
+   that become invisible on a dark background.
+   ============================================== */
+[data-theme="dark"] .auth-form-panel {
+  background: #0F172A !important;
+}
+
+[data-theme="dark"] .auth-glass-card {
+  background: rgba(30, 41, 59, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .auth-glass-card .auth-logo span {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .auth-heading {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .auth-subheading {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .form-floating input {
+  background: rgba(15, 23, 42, 0.6) !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .form-floating input:focus {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: var(--coral) !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.12) !important;
+}
+
+[data-theme="dark"] .form-floating label {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .form-floating input:focus ~ label,
+[data-theme="dark"] .form-floating input:not(:placeholder-shown) ~ label {
+  color: var(--coral) !important;
+}
+
+[data-theme="dark"] .auth-remember span {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .auth-divider {
+  color: #64748b !important;
+}
+
+[data-theme="dark"] .auth-divider::before,
+[data-theme="dark"] .auth-divider::after {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .auth-switch {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .auth-alert-error {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+[data-theme="dark"] .auth-alert-success {
+  background: rgba(78, 205, 196, 0.15) !important;
+  border-color: rgba(78, 205, 196, 0.3) !important;
+  color: #5eead4 !important;
+}
+
+[data-theme="dark"] .password-toggle {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .password-toggle:hover {
+  color: #e2e8f0 !important;
+}
+
+/* ==============================================
+   FIX 3: ADOPTION APPLICATION FORM — DARK MODE
+   The form uses inline <style> with hardcoded
+   #fff / #ffffff backgrounds and dark text.
+   ============================================== */
+[data-theme="dark"] .application-page .application-shell {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .application-page .application-header {
+  background: linear-gradient(120deg, #1E293B, #0F172A) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .application-page .application-header h1 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .application-page .application-header p {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .application-page .application-section {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+/* ==============================================
+   FIX: ADOPTION MODAL — DARK MODE
+   The popup modal in pets.show has light backgrounds
+   and dark text. This adds dark theme support.
+   ============================================== */
+[data-theme="dark"] .pet-application-content {
+  background: #1E293B !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .application-modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .application-modal-header h3 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .modal-close {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .modal-close:hover {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .modal-application-grid .field label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .modal-application-grid input,
+[data-theme="dark"] .modal-application-grid select,
+[data-theme="dark"] .modal-application-grid textarea {
+  background: #0F172A !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .modal-application-grid input:focus,
+[data-theme="dark"] .modal-application-grid select:focus,
+[data-theme="dark"] .modal-application-grid textarea:focus {
+  background: #1E293B !important;
+  border-color: var(--coral) !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.15) !important;
+}
+
+[data-theme="dark"] .radio-card .radio-content {
+  background: #0F172A !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .radio-card:hover .radio-content {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+[data-theme="dark"] .radio-card input[type="radio"]:checked + .radio-content {
+  border-color: var(--coral) !important;
+  background: rgba(255, 107, 107, 0.15) !important;
+  color: var(--coral) !important;
+}
+
+[data-theme="dark"] .modal-application-grid .radio-set label {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .modal-error-box {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+}
+[data-theme="dark"] .application-page .application-section h2 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .application-page .field label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .application-page .field input,
+[data-theme="dark"] .application-page .field select,
+[data-theme="dark"] .application-page .field textarea {
+  background: #0F172A !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .application-page .field input:focus,
+[data-theme="dark"] .application-page .field select:focus,
+[data-theme="dark"] .application-page .field textarea:focus {
+  background: #1E293B !important;
+  border-color: var(--coral) !important;
+}
+
+[data-theme="dark"] .application-page .radio-set label {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .application-page .hint {
+  color: #64748b !important;
+}
+
+[data-theme="dark"] .application-page .error-text {
+  color: #fca5a5 !important;
+}
+
+[data-theme="dark"] .application-page .error-box {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+[data-theme="dark"] .application-page .btn-back {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme="dark"] .application-page .btn-back:hover {
+  background: #475569 !important;
+}
+
+/* ==============================================
+   FIX 6: FAVORITES PAGE — DARK MODE
+   Cards and containers use hardcoded #fff.
+   ============================================== */
+[data-theme="dark"] .favorites-head h1 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .favorites-head p {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .favorite-card {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .favorite-content h2 {
+  color: #FAF8F6 !important;
+}
+
+[data-theme="dark"] .favorite-meta {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .favorites-wrap .pill {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #93c5fd !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+[data-theme="dark"] .favorites-wrap .empty {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .favorites-wrap .empty a {
+  color: #93c5fd !important;
+}
+
+/* ============================================
+   MOBILE AUTH GROUP (DARK)
+   ============================================ */
+[data-theme="dark"] .mobile-auth-group {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .mobile-user-info {
+  color: #e2e8f0 !important;
+}

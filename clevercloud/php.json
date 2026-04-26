@@ -1,0 +1,8 @@
+{
+    "deploy": {
+        "webroot": "/public"
+    },
+    "build": {
+        "type": "composer"
+    }
+}

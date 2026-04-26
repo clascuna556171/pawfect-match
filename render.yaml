@@ -1,0 +1,51 @@
+# =============================================================================
+# PawfectMatch - Render Blueprint
+# =============================================================================
+# IMPORTANT: Render does NOT offer managed MySQL.
+# You must provide an external MySQL database (e.g., PlanetScale, Railway,
+# TiDB Cloud, or Clever Cloud MySQL add-on).
+# Set DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD in the
+# Render Dashboard > Environment after creating the service.
+# =============================================================================
+
+services:
+  - type: web
+    name: pawfectmatch
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_NAME
+        value: PawfectMatch
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        sync: false
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_STORE
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: error
+      - key: BCRYPT_ROUNDS
+        value: "12"

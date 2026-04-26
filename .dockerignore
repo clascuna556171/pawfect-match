@@ -1,0 +1,39 @@
+.git
+.gitignore
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+.phpunit.cache
+.fleet
+.idea
+.nova
+.vscode
+.zed
+.DS_Store
+Thumbs.db
+
+# Documentation & samples
+FinalProjectDocs/
+sample_UI/
+public/sample_UI/
+
+# Dev/debug scripts
+*.py
+fetch.php
+render.php
+output.html
+raw.html
+raw_html.html
+temp_view.html
+Todofeauturesfixes.md
+project_context.md
+
+# Node modules (rebuilt during docker build)
+node_modules/
+
+# Tests (not needed in production)
+tests/
+
+# Docker configs (already inside)
+docker/

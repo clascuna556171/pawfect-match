@@ -1,0 +1,613 @@
+/* ==============================================
+   PAWFECTMATCH - AUTH PAGES STYLESHEET
+   Split-Screen Glassmorphism Login & Register
+   ============================================== */
+
+/* ============================================
+   CSS VARIABLES (Self-contained for auth pages)
+   ============================================ */
+:root {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --navy: #1A2332;
+  --cream: #FAF8F6;
+  --coral: #FF6B6B;
+  --coral-light: #FF8E8E;
+  --mint: #4ECDC4;
+  --gray: #6B7280;
+  --gray-light: #E8E4DF;
+  --shadow-sm: 0 1px 2px rgba(26, 35, 50, 0.05);
+  --shadow-md: 0 4px 6px rgba(26, 35, 50, 0.07);
+  --shadow-xl: 0 20px 25px rgba(26, 35, 50, 0.15);
+}
+
+/* Hide navbar, footer, AND chatbot on auth pages for clean fullscreen experience */
+body:has(.auth-page) .navbar,
+body:has(.auth-page) .footer,
+body:has(.auth-page) #pawbot-toggle,
+body:has(.auth-page) .pawbot-panel {
+  display: none !important;
+}
+
+body:has(.auth-page) main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ============================================
+   AUTH PAGE LAYOUT
+   ============================================ */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--page-bg, var(--cream));
+}
+
+/* ============================================
+   LEFT PANEL - CINEMATIC PET IMAGE
+   ============================================ */
+.auth-image-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-image-panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.08) saturate(1.15);
+  transition: transform 12s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.auth-image-panel:hover img {
+  transform: scale(1.05);
+}
+
+/* Cinematic warm color-grading overlay */
+.auth-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 107, 107, 0.25) 0%,
+      rgba(255, 142, 142, 0.15) 30%,
+      rgba(78, 205, 196, 0.12) 60%,
+      rgba(26, 35, 50, 0.55) 100%
+    );
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.auth-image-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(26, 35, 50, 0.65) 100%
+  );
+  z-index: 2;
+}
+
+/* Text on Image Panel */
+.auth-image-content {
+  position: relative;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding: 3rem;
+  margin-top: auto;
+  margin-bottom: 4rem;
+}
+
+.auth-image-content h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.auth-image-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 380px;
+  margin: 0 auto;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating paw decorations */
+.auth-image-panel .paw-float {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.15;
+  z-index: 5;
+  animation: pawFloat 6s ease-in-out infinite;
+}
+
+.auth-image-panel .paw-float:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+.auth-image-panel .paw-float:nth-child(2) { top: 30%; right: 15%; animation-delay: 1.5s; font-size: 1.5rem; }
+.auth-image-panel .paw-float:nth-child(3) { bottom: 35%; left: 20%; animation-delay: 3s; font-size: 2.5rem; }
+
+@keyframes pawFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  50% { transform: translateY(-15px) rotate(10deg); opacity: 0.25; }
+}
+
+/* ============================================
+   RIGHT PANEL - GLASSMORPHISM FORM
+   ============================================ */
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated background orbs */
+.auth-form-panel::before,
+.auth-form-panel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.auth-form-panel::before {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 107, 107, 0.2);
+  top: -50px;
+  right: -80px;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.auth-form-panel::after {
+  width: 250px;
+  height: 250px;
+  background: rgba(78, 205, 196, 0.15);
+  bottom: -40px;
+  left: -60px;
+  animation: orbFloat 25s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -20px); }
+  66% { transform: translate(-20px, 15px); }
+}
+
+/* ============================================
+   GLASSMORPHISM CARD
+   ============================================ */
+.auth-glass-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(26, 35, 50, 0.08),
+    0 2px 8px rgba(26, 35, 50, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.auth-glass-card .auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-glass-card .auth-logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-glass-card .auth-logo span {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.auth-heading {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.auth-subheading {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* ============================================
+   FLOATING LABEL INPUTS
+   ============================================ */
+.form-floating {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+  width: 100%;
+  padding: 1.25rem 1rem 0.625rem;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--navy);
+  background: rgba(250, 248, 246, 0.6);
+  border: 2px solid rgba(26, 35, 50, 0.1);
+  border-radius: 14px;
+  outline: none;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-floating input::placeholder {
+  color: transparent;
+}
+
+.form-floating label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: var(--gray);
+  pointer-events: none;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+  background: transparent;
+  padding: 0 0.25rem;
+}
+
+/* Float the label up on focus or when input has value */
+.form-floating input:focus ~ label,
+.form-floating input:not(:placeholder-shown) ~ label {
+  top: 0.55rem;
+  transform: translateY(0);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--coral);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.form-floating input:focus {
+  border-color: var(--coral);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.08);
+}
+
+/* Error state */
+.form-floating input.is-invalid {
+  border-color: #ef4444;
+}
+
+.form-floating .input-error {
+  display: block;
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  padding-left: 0.25rem;
+}
+
+/* ============================================
+   PASSWORD TOGGLE
+   ============================================ */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 3rem;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  padding: 0.25rem;
+  transition: color 200ms;
+  z-index: 2;
+}
+
+.password-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.password-toggle .icon-eye-off {
+  display: none;
+}
+
+.password-toggle.is-visible .icon-eye {
+  display: none;
+}
+
+.password-toggle.is-visible .icon-eye-off {
+  display: block;
+}
+
+.password-toggle:hover {
+  color: var(--navy);
+}
+
+/* ============================================
+   REMEMBER ME & LINKS
+   ============================================ */
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.auth-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.auth-remember input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  accent-color: var(--coral);
+  cursor: pointer;
+}
+
+.auth-remember span {
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.auth-forgot {
+  font-size: 0.875rem;
+  color: var(--coral);
+  font-weight: 500;
+  transition: color 200ms;
+}
+
+.auth-forgot:hover {
+  color: var(--navy);
+}
+
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
+.auth-submit {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: white;
+  background: linear-gradient(135deg, var(--coral), var(--coral-light));
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.auth-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.auth-submit:hover::before {
+  opacity: 1;
+}
+
+.auth-submit:active {
+  transform: translateY(0);
+}
+
+.auth-submit:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75rem 0;
+  color: var(--gray);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(26, 35, 50, 0.1);
+}
+
+/* ============================================
+   SWITCH LINK (Login ↔ Register)
+   ============================================ */
+.auth-switch {
+  text-align: center;
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.auth-switch a {
+  color: var(--coral);
+  font-weight: 600;
+  position: relative;
+}
+
+.auth-switch a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--coral);
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-switch a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   ERROR ALERT BOX
+   ============================================ */
+.auth-alert {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  animation: alertSlideIn 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.auth-alert-error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #b91c1c;
+}
+
+.auth-alert-success {
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  color: #0f766e;
+}
+
+.auth-alert-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@keyframes alertSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+@media (max-width: 1024px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-image-panel {
+    display: none;
+  }
+
+  .auth-form-panel {
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-glass-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .auth-heading {
+    font-size: 1.65rem;
+  }
+}
+
+/* ============================================
+   ENTRANCE ANIMATION
+   ============================================ */
+.auth-glass-card {
+  animation: cardFadeIn 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.auth-image-content {
+  animation: contentFadeIn 1000ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
