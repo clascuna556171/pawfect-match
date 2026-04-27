@@ -35,5 +35,4 @@ node_modules/
 # Tests (not needed in production)
 tests/
 
-# Docker configs (already inside)
-docker/
+
